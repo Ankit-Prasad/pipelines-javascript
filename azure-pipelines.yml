@@ -18,7 +18,7 @@ steps:
 - script: |
     npm install
     npm audit
-    npm audit fix
+    npm audit fix --force
     npm run build
     npm test
 - task: PublishTestResults@2
