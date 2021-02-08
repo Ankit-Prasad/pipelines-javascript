@@ -17,6 +17,7 @@ steps:
 
 - script: |
     npm install
+    npm install --save-dev nyc@15.1.0
     npm audit
     npm audit fix --force
     npm run build
