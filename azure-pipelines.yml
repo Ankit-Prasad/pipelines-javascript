@@ -31,7 +31,7 @@ steps:
   inputs:
     command: custom
     verbose: true
-    customCommand: 'audit --registry=https://registry.npmjs.org/'
+    customCommand: 'audit'# --registry=https://registry.npmjs.org/'
 
 - script: |
     npm audit fix #--force
