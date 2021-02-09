@@ -59,6 +59,6 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       az upgrade --yes
-      # az login
+      az login -u azureuser
       az artifacts universal publish --organization https://dev.azure.com/ankit-prasad-personal-org/ --project="Node" --scope project --feed SecurityTesting --name my-first-package --version 0.0.1 --description "Welcome to Universal Packages" --path .
 
