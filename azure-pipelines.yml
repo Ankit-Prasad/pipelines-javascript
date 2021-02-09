@@ -51,3 +51,14 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Azure for Students(ede3dcb3-4aef-472a-bbca-ce33f13a01b9)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az artifacts universal download --organization https://dev.azure.com/ankit-prasad-personal-org/
+          --project="Node"
+          --scope project --feed SecurityTesting --name my-first-package --version 0.0.1 --path .
+
