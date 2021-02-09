@@ -46,19 +46,24 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
   displayName: 'npm install and build'
 
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+
+# - task: AzureCLI@2
+#   inputs:
+#     azureSubscription: 'Azure for Students(ede3dcb3-4aef-472a-bbca-ce33f13a01b9)'
+#     scriptType: 'bash'
+#     scriptLocation: 'inlineScript'
+#     inlineScript: |
+#       az upgrade --yes
+#       az login
+#       az artifacts universal publish --organization https://dev.azure.com/ankit-prasad-personal-org/ --project="Node" --scope project --feed SecurityTesting --name my-first-package --version 0.0.1 --description "Welcome to Universal Packages" --path .
+
 # - task: PublishBuildArtifacts@1
 #   inputs:
 #     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
 #     ArtifactName: 'drop'
 #     publishLocation: 'Container'
-
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'Azure for Students(ede3dcb3-4aef-472a-bbca-ce33f13a01b9)'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      az upgrade --yes
-      az login
-      az artifacts universal publish --organization https://dev.azure.com/ankit-prasad-personal-org/ --project="Node" --scope project --feed SecurityTesting --name my-first-package --version 0.0.1 --description "Welcome to Universal Packages" --path .
-
