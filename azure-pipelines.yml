@@ -58,7 +58,7 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az upgrade
+      az upgrade --yes
       az login
       az artifacts universal publish --organization https://dev.azure.com/ankit-prasad-personal-org/
       --project="Node" --scope project
