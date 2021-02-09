@@ -61,6 +61,6 @@ steps:
       az upgrade
       az login
       az artifacts universal publish --organization https://dev.azure.com/ankit-prasad-personal-org/
-    --project="Node"
-    --feed SecurityTesting --name my-first-package --version 0.0.1 --description "Welcome to Universal Packages" --path .
+      --project="Node" --scope project
+      --feed SecurityTesting --name my-first-package --version 0.0.1 --description "Welcome to Universal Packages" --path .
 
