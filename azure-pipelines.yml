@@ -15,24 +15,22 @@ steps:
     versionSpec: '12.x'
   displayName: 'Install Node.js'
 
-# - script: |
-#     # npm install
-#     # npm install --save-dev nyc@15.1.0
-#     # npm install --save-dev gulp@4.0.2
-#     # npm install --save-dev gulp-mocha@7.0.2
-#     # npm install mocha@8.2.1
-#     npm install
-#     # npm audit 
-#     # npm audit fix --force
-#     # npm run build
-#     # npm test
+- script: |
+    # npm install --save-dev nyc@15.1.0
+    # npm install --save-dev gulp@4.0.2
+    # npm install --save-dev gulp-mocha@7.0.2
+    # npm install mocha@8.2.1
+    npm install
+    # npm audit 
+    # npm audit fix --force
+    # npm run build
+    # npm test
 
 - task: Npm@1
   displayName: 'npm custom'
   inputs:
     command: custom
-    verbose: false
-    customCommand: 'npm install'
+    verbose: true
     customCommand: 'audit --registry=https://registry.npmjs.org/'
 
 - script: |
